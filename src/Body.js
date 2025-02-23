@@ -61,9 +61,9 @@ const Body = () => {
 
   return (
     <div className="w-full min-h-screen p-5 bg-gray-100">
-   
+
       <div className="flex flex-col md:flex-row justify-between items-center mb-5">
-       
+
         <div className="flex w-full md:w-auto mb-3 md:mb-0">
           <input
             type="text"
@@ -80,7 +80,7 @@ const Body = () => {
           </button>
         </div>
 
-       
+
         <button
           className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600"
           onClick={handleOpenModal}
@@ -88,8 +88,8 @@ const Body = () => {
           Add Item
         </button>
       </div>
- 
-      <div className="flex flex-wrap justify-center gap-5">
+
+      <div className="flex flex-wrap   gap-5">
         {items.length > 0 ? (
           items.map((item) => (
             <RestaurantCard
@@ -105,7 +105,7 @@ const Body = () => {
         )}
       </div>
 
-   
+
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} onSubmit={addData} />
     </div>
   );
