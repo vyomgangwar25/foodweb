@@ -9,15 +9,15 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
     rating: "",
     price: "",
   });
-  if (!isOpen) return null; // Don't render modal if not open
+  if (!isOpen) return null;  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); // Pass data to parent
-    setFormData({ name: "", rating: "", price: "" }); // Clear fields
+    onSubmit(formData);  
+    setFormData({ name: "", rating: "", price: "" });  
     onClose(); // Close modal
   };
 
