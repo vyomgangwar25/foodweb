@@ -6,7 +6,7 @@ const Registration = () => {
     const [password, setPassword] = useState();
     const handleRegistration = async (e) => {
         try {
-    e.preventDefault()
+            e.preventDefault()
             const data = await fetch("http://localhost:8080/user/registration", {
                 method: "POST",
                 headers: {
@@ -23,7 +23,7 @@ const Registration = () => {
             console.log(response);
         }
         catch (err) {
-      console.log(err);
+            console.log(err);
         }
     }
     return (

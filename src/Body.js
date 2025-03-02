@@ -24,7 +24,13 @@ const Body = () => {
 
   const itemsApi = async () => {
     try {
-      const data = await fetch("http://localhost:8080/items/list");
+      const data = await fetch("http://localhost:8080/items/list",{
+        method:"GET",
+        headers:{
+          "Content-Type": "application/json",
+          "Authorization": "Bearer eyJhbGciOiJIUzM4NCJ9.eyJSb2xlIjoiQWRtaW4iLCJzdWIiOiJ2eW9tQGdtYWlsLmNvbSIsImlhdCI6MTc0MDg5ODk0NCwiZXhwIjoxNzQwOTAwNzQ0fQ.OJE2hflYVXd3VEU7-1G-Co_qp9xozcPVY1oJ2VMpQnhcXi2R02hEtIohSb4DbWE8"
+        }
+      });
       const json = await data.json();
       setItems(json);
     } catch (err) {
@@ -52,7 +58,7 @@ const Body = () => {
       console.log(err);
     }
   };
-  
+
 
   useEffect(() => {
     if (searchText.length === 0) {
@@ -64,11 +70,11 @@ const Body = () => {
     <div className="w-full min-h-screen p-5 bg-gray-100">
       <div className="flex flex-col md:flex-row justify-between items-center mb-5">
         <div className="flex w-full md:w-auto mb-3 md:mb-0">
-          <input  type="text"  className="border border-gray-400 p-2 rounded-l w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Search items..."  value={searchText}   onChange={(e) => setSearchText(e.target.value)}   />
-          <button   className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600" onClick={searchApi}> Search </button>
+          <input type="text" className="border border-gray-400 p-2 rounded-l w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Search items..." value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-r hover:bg-blue-600" onClick={searchApi}> Search </button>
         </div>
-        <button  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" onClick={handleOpenModal}>  Add Item </button>
+        <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" onClick={handleOpenModal}>  Add Item </button>
       </div>
 
       <div className="flex flex-wrap   gap-5">
@@ -88,7 +94,7 @@ const Body = () => {
         )}
       </div>
 
-      <Modal  isOpen={isModalOpen} onClose={handleCloseModal}   onSubmit={addData}  /> 
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal} onSubmit={addData} />
     </div>
   );
 };
