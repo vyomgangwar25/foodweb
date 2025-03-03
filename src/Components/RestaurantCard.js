@@ -4,7 +4,7 @@ import DeleteModal from "./DeleteModal";
 
 const RestaurantCard = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const token = localStorage.getItem("jwtToken");
   const isClose = () => {
     setIsOpen(false);
   };
@@ -25,6 +25,7 @@ const RestaurantCard = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           name: data.name,
