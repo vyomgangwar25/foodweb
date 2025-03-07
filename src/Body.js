@@ -19,7 +19,7 @@ const Body = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         }
-      }  );
+      });
       const json = await data.json();
       setItems(json);
     } catch (err) {
@@ -90,7 +90,7 @@ const Body = () => {
             Search{" "}
           </button>
         </div>
-        <button   className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" onClick={handleOpenModal}>
+        <button className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600" onClick={handleOpenModal}>
           {" "}Add Item{" "}
         </button>
       </div>
